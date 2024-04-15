@@ -158,14 +158,18 @@ div.csl-indent {
   <li><a href="#observational-cohort-studies" id="toc-observational-cohort-studies" class="nav-link" data-scroll-target="#observational-cohort-studies"><span class="header-section-number">1.2.1</span> Observational cohort studies</a></li>
   <li><a href="#experimental-cohort-studies-clinical-trials" id="toc-experimental-cohort-studies-clinical-trials" class="nav-link" data-scroll-target="#experimental-cohort-studies-clinical-trials"><span class="header-section-number">1.2.2</span> Experimental cohort studies (<strong>clinical trials</strong>)</a></li>
   </ul></li>
-  <li><a href="#general-additive-mixed-model-gamm" id="toc-general-additive-mixed-model-gamm" class="nav-link" data-scroll-target="#general-additive-mixed-model-gamm"><span class="header-section-number">1.3</span> General Additive Mixed Model (GAMM)</a>
+  <li><a href="#continous-outcome-variables" id="toc-continous-outcome-variables" class="nav-link" data-scroll-target="#continous-outcome-variables"><span class="header-section-number">1.3</span> Continous outcome variables</a>
   <ul class="collapse">
-  <li><a href="#walking-speed-and-age" id="toc-walking-speed-and-age" class="nav-link" data-scroll-target="#walking-speed-and-age"><span class="header-section-number">1.3.1</span> Walking speed and age</a></li>
-  <li><a href="#number-of-years-of-functioning-lost-primary-outcome" id="toc-number-of-years-of-functioning-lost-primary-outcome" class="nav-link" data-scroll-target="#number-of-years-of-functioning-lost-primary-outcome"><span class="header-section-number">1.3.2</span> Number of years of functioning lost (primary outcome)</a></li>
-  <li><a href="#years-of-life-lost-secundary-outcome" id="toc-years-of-life-lost-secundary-outcome" class="nav-link" data-scroll-target="#years-of-life-lost-secundary-outcome"><span class="header-section-number">1.3.3</span> Years of life lost (secundary outcome)</a></li>
+  <li><a href="#two-measurements" id="toc-two-measurements" class="nav-link" data-scroll-target="#two-measurements"><span class="header-section-number">1.3.1</span> Two measurements</a></li>
   </ul></li>
-  <li><a href="#pace-of-aging" id="toc-pace-of-aging" class="nav-link" data-scroll-target="#pace-of-aging"><span class="header-section-number">1.4</span> Pace of aging</a></li>
-  <li><a href="#terms" id="toc-terms" class="nav-link" data-scroll-target="#terms"><span class="header-section-number">1.5</span> Terms</a></li>
+  <li><a href="#general-additive-mixed-model-gamm" id="toc-general-additive-mixed-model-gamm" class="nav-link" data-scroll-target="#general-additive-mixed-model-gamm"><span class="header-section-number">1.4</span> General Additive Mixed Model (GAMM)</a>
+  <ul class="collapse">
+  <li><a href="#walking-speed-and-age" id="toc-walking-speed-and-age" class="nav-link" data-scroll-target="#walking-speed-and-age"><span class="header-section-number">1.4.1</span> Walking speed and age</a></li>
+  <li><a href="#number-of-years-of-functioning-lost-primary-outcome" id="toc-number-of-years-of-functioning-lost-primary-outcome" class="nav-link" data-scroll-target="#number-of-years-of-functioning-lost-primary-outcome"><span class="header-section-number">1.4.2</span> Number of years of functioning lost (primary outcome)</a></li>
+  <li><a href="#years-of-life-lost-secundary-outcome" id="toc-years-of-life-lost-secundary-outcome" class="nav-link" data-scroll-target="#years-of-life-lost-secundary-outcome"><span class="header-section-number">1.4.3</span> Years of life lost (secundary outcome)</a></li>
+  </ul></li>
+  <li><a href="#pace-of-aging" id="toc-pace-of-aging" class="nav-link" data-scroll-target="#pace-of-aging"><span class="header-section-number">1.5</span> Pace of aging</a></li>
+  <li><a href="#terms" id="toc-terms" class="nav-link" data-scroll-target="#terms"><span class="header-section-number">1.6</span> Terms</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2</span> References</a></li>
   </ul>
 </nav>
@@ -193,43 +197,20 @@ div.csl-indent {
 <section id="longitudinal-studies" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="longitudinal-studies"><span class="header-section-number">1.1</span> Longitudinal studies</h2>
 <blockquote class="blockquote">
-<p>Longitudinal studies are defined as studies in which the outcome variable is repeateadly measured; i.e.&nbsp;the outcome variable is measured in the same subject on several occasions.</p>
+<p>Longitudinal studies are defined as studies in which the outcome variable is repeateadly measured; i.e.&nbsp;the outcome variable is measured in the same subject on several occasions. – Extracted from <span class="citation" data-cites="twisk2013">Twisk (<a href="references.html#ref-twisk2013" role="doc-biblioref">2013</a>)</span></p>
 </blockquote>
-<p>Extracted from <span class="citation" data-cites="twisk2013">Twisk (<a href="references.html#ref-twisk2013" role="doc-biblioref">2013</a>)</span></p>
-<p>Characteristics: * observations of one subject over time are not independent of each other * statistics should consider that repeated observations of each subject are correlated * this studies bring the illusion than are solving causality but only we can try temporality</p>
-<table class="table">
-<caption>Statistical notation</caption>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">number of</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">subjects</td>
-<td style="text-align: left;">i = 1 to N</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">number of covariates</td>
-<td style="text-align: left;">j = 1 to J</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">number of times a particular subject is</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">measured</td>
-<td style="text-align: left;">t = 1 to T</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">outcome variable</td>
-<td style="text-align: left;">Y</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">covariates</td>
-<td style="text-align: left;">X</td>
-</tr>
-</tbody>
-</table>
+<p>Characteristics:</p>
+<ul>
+<li><p>Observations of one subject over time are not independent of each other.</p></li>
+<li><p>Statistics should consider that repeated observations of each subject are correlated.</p></li>
+<li><p>This studies bring the illusion than are solving causality but only we can try temporality.</p></li>
+</ul>
+<p>number of subjects | <code>i = 1 to N</code> |<br>
+number of covariates <code>| j = 1 to J</code> |<br>
+number of times a particular subject is measured | <code>t = 1 to T</code> |<br>
+outcome variable | <code>Y</code> |<br>
+covariates | <code>X</code> |</p>
+<p>: Statistical notation</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="classification.png" class="img-fluid figure-img"></p>
@@ -241,17 +222,71 @@ div.csl-indent {
 <h2 data-number="1.2" class="anchored" data-anchor-id="cohort-studies"><span class="header-section-number">1.2</span> Cohort studies</h2>
 <section id="observational-cohort-studies" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="observational-cohort-studies"><span class="header-section-number">1.2.1</span> Observational cohort studies</h3>
-<p>can be divided into: * <strong>prospective</strong> * The only one that can be characterized as longitudinal. * Analyze the longitudinal development of a certain characteristic over time (growth or deterioration). * <strong>tracking</strong>: “stability” of a certain characteristic over time</p>
+<p>The question of probable causality remains unanswered.</p>
+<p>can be divided into:<br>
+* <strong>prospective</strong>. * The only one that can be characterized as longitudinal.<br>
+* Analyze the longitudinal development of a certain characteristic over time (growth or deterioration).<br>
+* <strong>tracking</strong>: “stability” of a certain characteristic over time.</p>
 <ul>
-<li><strong>retrospective</strong></li>
-<li><strong>cross-sectional</strong></li>
+<li><strong>retrospective</strong>.</li>
+<li><strong>cross-sectional</strong>.</li>
 </ul>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Term</th>
+<th style="text-align: left;">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>age</code></td>
+<td style="text-align: left;">time from date of birth to date of measurement</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>period</code></td>
+<td style="text-align: left;">time or moment at which the measurement is taken</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>birth cohort</code></td>
+<td style="text-align: left;">group of subjects born in the same year</td>
+</tr>
+</tbody>
+</table>
+<section id="confounding-effects" class="level4" data-number="1.2.1.1">
+<h4 data-number="1.2.1.1" class="anchored" data-anchor-id="confounding-effects"><span class="header-section-number">1.2.1.1</span> Confounding Effects</h4>
+<p><em>age</em>, <em>period</em> and <em>cohort</em> effects could produce variations in the results.</p>
+<ul>
+<li><strong>period effect</strong>.<br>
+If we measure physical activity during summers, it is likely that we can have more physical activity a hot summer than a rainy one. This can produce a bias in the age trend.</li>
+<li><strong>cohort effect</strong>. If we want to unify results for the same age for cohorts that start at different ages, we will find that the trend is much flatter than the effects of the cohorts in isolation.</li>
+</ul>
+<p>One way to avoid the bias is to use an approach called <em>multiple longitudinal design</em> Basically, multiple longitudinal design is to work with more than one cohort at the same time. If all the cohorts show a defined pattern for a particular measure in time, we will be able to detect it with this approach.</p>
+<ul>
+<li>Test or learning effect. Individuals start performing better with exposure.</li>
+<li>Low reproducibility of the measurements. Inter-period correlation coefficients (IPCs) (van ’t Hofand Kowalski, 1979)</li>
+</ul>
+</section>
 </section>
 <section id="experimental-cohort-studies-clinical-trials" class="level3" data-number="1.2.2">
 <h3 data-number="1.2.2" class="anchored" data-anchor-id="experimental-cohort-studies-clinical-trials"><span class="header-section-number">1.2.2</span> Experimental cohort studies (<strong>clinical trials</strong>)</h3>
 <ul>
-<li>are prospective (ie longitudinal).</li>
+<li>There are prospective (ie longitudinal).</li>
 <li>The outcome variable Y is measured at least twice (the classical “pre-test,” “post-test” design).</li>
+<li>The issue of causality can be covered</li>
+</ul>
+</section>
+</section>
+<section id="continous-outcome-variables" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="continous-outcome-variables"><span class="header-section-number">1.3</span> Continous outcome variables</h2>
+<section id="two-measurements" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="two-measurements"><span class="header-section-number">1.3.1</span> Two measurements</h3>
+<blockquote class="blockquote">
+<p>Is there a difference in the outcome variable <code>Y</code> between <code>t = 1</code> and <code>t = 2</code></p>
+</blockquote>
+<p>The <strong>paired t-test</strong> is used to test the hypothesis that the mean difference between <code>Yt1</code> and <code>Yt2</code> equals zero.</p>
+<ul>
+<li>Observations within one individual are dependent on each other.</li>
 </ul>
 <p>stringhini, 2018</p>
 <p>Premature mortality reduction from chronic diseases</p>
@@ -259,33 +294,33 @@ div.csl-indent {
 <p>Socioeconomic status - occupational group - educational attainment - level of income and wealth - place of residence</p>
 </section>
 </section>
-<section id="general-additive-mixed-model-gamm" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="general-additive-mixed-model-gamm"><span class="header-section-number">1.3</span> General Additive Mixed Model (GAMM)</h2>
+<section id="general-additive-mixed-model-gamm" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="general-additive-mixed-model-gamm"><span class="header-section-number">1.4</span> General Additive Mixed Model (GAMM)</h2>
 <p><strong>semi-parametric model</strong></p>
 <p>Let’s start with an equation for a Gaussian linear model:</p>
 <p>y=β0+x1β1+ε,ε∼N(0,σ2)</p>
 <p>What changes in a GAM is the presence of a smoothing term:</p>
 <p>y=β0+f(x1)+ε,ε∼N(0,σ2)</p>
 <p>This term could be many things.</p>
-<section id="walking-speed-and-age" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="walking-speed-and-age"><span class="header-section-number">1.3.1</span> Walking speed and age</h3>
+<section id="walking-speed-and-age" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="walking-speed-and-age"><span class="header-section-number">1.4.1</span> Walking speed and age</h3>
 <p>Fixed Effects Predictors - age - height</p>
 <p>Random Effect - study at the intercept and age slope</p>
 </section>
-<section id="number-of-years-of-functioning-lost-primary-outcome" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="number-of-years-of-functioning-lost-primary-outcome"><span class="header-section-number">1.3.2</span> Number of years of functioning lost (primary outcome)</h3>
+<section id="number-of-years-of-functioning-lost-primary-outcome" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="number-of-years-of-functioning-lost-primary-outcome"><span class="header-section-number">1.4.2</span> Number of years of functioning lost (primary outcome)</h3>
 <p>It is based on the predictions of the previous model</p>
 <p>Fixed Effects - age - age2 - height - year of birth - distances walked - risk factor under study (minimally adjusted model) - all risk factors (mutually adjusted models)</p>
 <p>CI - Model based parametric 5000 bootstrap samples</p>
 </section>
-<section id="years-of-life-lost-secundary-outcome" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="years-of-life-lost-secundary-outcome"><span class="header-section-number">1.3.3</span> Years of life lost (secundary outcome)</h3>
+<section id="years-of-life-lost-secundary-outcome" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="years-of-life-lost-secundary-outcome"><span class="header-section-number">1.4.3</span> Years of life lost (secundary outcome)</h3>
 <p>Difference between the areas of the survival curves. Survival curves Kaplan-Meier adjusted curves, conditional on survival to age 60 years. They run a shared frality Cox model with age as time scale, stratified by the levels of the given risk factor and a year of birth as covariate (for minimally adjusted models) or year of birth and the remaining risk factors as covariates (mutually adjusted models)</p>
 <p>schrempft 2022</p>
 </section>
 </section>
-<section id="pace-of-aging" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="pace-of-aging"><span class="header-section-number">1.4</span> Pace of aging</h2>
+<section id="pace-of-aging" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="pace-of-aging"><span class="header-section-number">1.5</span> Pace of aging</h2>
 <p>similar to Dunedin Study investigators</p>
 <p>1 - Biomarkers were standarized for healthy men and women. Z-scores were reversed for HDL and creatinine clearence.</p>
 <p>2 - Mixed-effects models with a random interecept and a random linear slope, were used to calculate participants’ personal slopes (change in biomarkers per year) Each year included time, age a t baseline center in the samples mean, and a interaction term between the time and age at the baseline. For biomarkers that show a non linear trajectory, an additionally</p>
@@ -293,8 +328,8 @@ div.csl-indent {
 <p>Covariates: - Alcohol &gt; 14 units - hipertensive or diabetic medication - pysical inactivity - smoking status</p>
 <p>carmeli, 2019</p>
 </section>
-<section id="terms" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="terms"><span class="header-section-number">1.5</span> Terms</h2>
+<section id="terms" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="terms"><span class="header-section-number">1.6</span> Terms</h2>
 <table class="table">
 <caption>Terms used in this analysis</caption>
 <thead>
