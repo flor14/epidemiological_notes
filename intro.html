@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Personal notes - epidemiology - 1&nbsp; Intro</title>
+<title>Notes on Longitudinal Data Analysis for Epidemiology - 1&nbsp; State of the Art - Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -49,7 +49,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
+<link href="./papers.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -93,7 +93,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">State of the Art - Statistics</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -108,7 +108,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Personal notes - epidemiology</a> 
+      <a href="./">Notes on Longitudinal Data Analysis for Epidemiology</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -127,13 +127,19 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">State of the Art - Statistics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  <a href="./papers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Scientific articles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">data analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -158,19 +164,18 @@ div.csl-indent {
   <li><a href="#observational-cohort-studies" id="toc-observational-cohort-studies" class="nav-link" data-scroll-target="#observational-cohort-studies"><span class="header-section-number">1.2.1</span> Observational cohort studies</a></li>
   <li><a href="#experimental-cohort-studies-clinical-trials" id="toc-experimental-cohort-studies-clinical-trials" class="nav-link" data-scroll-target="#experimental-cohort-studies-clinical-trials"><span class="header-section-number">1.2.2</span> Experimental cohort studies (<strong>clinical trials</strong>)</a></li>
   </ul></li>
-  <li><a href="#continous-outcome-variables" id="toc-continous-outcome-variables" class="nav-link" data-scroll-target="#continous-outcome-variables"><span class="header-section-number">1.3</span> Continous outcome variables</a>
+  <li><a href="#one-continous-outcome-variables-is-repeatedly-measured-over-time" id="toc-one-continous-outcome-variables-is-repeatedly-measured-over-time" class="nav-link" data-scroll-target="#one-continous-outcome-variables-is-repeatedly-measured-over-time"><span class="header-section-number">1.3</span> One continous outcome variables is repeatedly measured over time</a>
   <ul class="collapse">
   <li><a href="#two-measurements" id="toc-two-measurements" class="nav-link" data-scroll-target="#two-measurements"><span class="header-section-number">1.3.1</span> Two measurements</a></li>
+  <li><a href="#more-than-two-measurements" id="toc-more-than-two-measurements" class="nav-link" data-scroll-target="#more-than-two-measurements"><span class="header-section-number">1.3.2</span> More than two measurements</a></li>
+  <li><a href="#multivariate-analysis-of-variance-manova-for-repeated-measurements" id="toc-multivariate-analysis-of-variance-manova-for-repeated-measurements" class="nav-link" data-scroll-target="#multivariate-analysis-of-variance-manova-for-repeated-measurements"><span class="header-section-number">1.3.3</span> Multivariate analysis of variance (MANOVA) for repeated measurements</a></li>
   </ul></li>
-  <li><a href="#general-additive-mixed-model-gamm" id="toc-general-additive-mixed-model-gamm" class="nav-link" data-scroll-target="#general-additive-mixed-model-gamm"><span class="header-section-number">1.4</span> General Additive Mixed Model (GAMM)</a>
+  <li><a href="#continuous-outcome-variable-y-is-compared-between-different-groups." id="toc-continuous-outcome-variable-y-is-compared-between-different-groups." class="nav-link" data-scroll-target="#continuous-outcome-variable-y-is-compared-between-different-groups."><span class="header-section-number">1.4</span> Continuous outcome variable Y is compared between different groups.</a></li>
+  <li><a href="#continuous-outcome-variable-and-several-covariates" id="toc-continuous-outcome-variable-and-several-covariates" class="nav-link" data-scroll-target="#continuous-outcome-variable-and-several-covariates"><span class="header-section-number">1.5</span> Continuous outcome variable and several covariates</a>
   <ul class="collapse">
-  <li><a href="#walking-speed-and-age" id="toc-walking-speed-and-age" class="nav-link" data-scroll-target="#walking-speed-and-age"><span class="header-section-number">1.4.1</span> Walking speed and age</a></li>
-  <li><a href="#number-of-years-of-functioning-lost-primary-outcome" id="toc-number-of-years-of-functioning-lost-primary-outcome" class="nav-link" data-scroll-target="#number-of-years-of-functioning-lost-primary-outcome"><span class="header-section-number">1.4.2</span> Number of years of functioning lost (primary outcome)</a></li>
-  <li><a href="#years-of-life-lost-secundary-outcome" id="toc-years-of-life-lost-secundary-outcome" class="nav-link" data-scroll-target="#years-of-life-lost-secundary-outcome"><span class="header-section-number">1.4.3</span> Years of life lost (secundary outcome)</a></li>
+  <li><a href="#traditional-methods." id="toc-traditional-methods." class="nav-link" data-scroll-target="#traditional-methods."><span class="header-section-number">1.5.1</span> Traditional methods.</a></li>
+  <li><a href="#new-methods." id="toc-new-methods." class="nav-link" data-scroll-target="#new-methods."><span class="header-section-number">1.5.2</span> New methods.</a></li>
   </ul></li>
-  <li><a href="#pace-of-aging" id="toc-pace-of-aging" class="nav-link" data-scroll-target="#pace-of-aging"><span class="header-section-number">1.5</span> Pace of aging</a></li>
-  <li><a href="#terms" id="toc-terms" class="nav-link" data-scroll-target="#terms"><span class="header-section-number">1.6</span> Terms</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -179,7 +184,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">State of the Art - Statistics</span></h1>
 </div>
 
 
@@ -194,6 +199,7 @@ div.csl-indent {
 
 </header>
 
+<p>All this section is based on <span class="citation" data-cites="twisk2013">Twisk (<a href="references.html#ref-twisk2013" role="doc-biblioref">2013</a>)</span></p>
 <section id="longitudinal-studies" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="longitudinal-studies"><span class="header-section-number">1.1</span> Longitudinal studies</h2>
 <blockquote class="blockquote">
@@ -205,12 +211,37 @@ div.csl-indent {
 <li><p>Statistics should consider that repeated observations of each subject are correlated.</p></li>
 <li><p>This studies bring the illusion than are solving causality but only we can try temporality.</p></li>
 </ul>
-<p>number of subjects | <code>i = 1 to N</code> |<br>
-number of covariates <code>| j = 1 to J</code> |<br>
-number of times a particular subject is measured | <code>t = 1 to T</code> |<br>
-outcome variable | <code>Y</code> |<br>
-covariates | <code>X</code> |</p>
-<p>: Statistical notation</p>
+<table class="table">
+<caption>Statistical notation</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Notation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">number of subjects</td>
+<td style="text-align: left;"><code>i = 1 to N</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">number of covariates</td>
+<td style="text-align: left;"><code>j = 1 to J</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">number of times a particular subject is measured</td>
+<td style="text-align: left;"><code>t = 1 to T</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">outcome variable</td>
+<td style="text-align: left;"><code>Y</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">covariates</td>
+<td style="text-align: left;"><code>X</code></td>
+</tr>
+</tbody>
+</table>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="classification.png" class="img-fluid figure-img"></p>
@@ -263,8 +294,8 @@ If we measure physical activity during summers, it is likely that we can have mo
 </ul>
 <p>One way to avoid the bias is to use an approach called <em>multiple longitudinal design</em> Basically, multiple longitudinal design is to work with more than one cohort at the same time. If all the cohorts show a defined pattern for a particular measure in time, we will be able to detect it with this approach.</p>
 <ul>
-<li>Test or learning effect. Individuals start performing better with exposure.</li>
-<li>Low reproducibility of the measurements. Inter-period correlation coefficients (IPCs) (van ’t Hofand Kowalski, 1979)</li>
+<li><strong>Test or learning effect</strong>. Individuals start performing better with exposure.</li>
+<li><strong>Low reproducibility of the measurements</strong>. Inter-period correlation coefficients (IPCs) (van ’t Hofand Kowalski, 1979)</li>
 </ul>
 </section>
 </section>
@@ -277,96 +308,98 @@ If we measure physical activity during summers, it is likely that we can have mo
 </ul>
 </section>
 </section>
-<section id="continous-outcome-variables" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="continous-outcome-variables"><span class="header-section-number">1.3</span> Continous outcome variables</h2>
+<section id="one-continous-outcome-variables-is-repeatedly-measured-over-time" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="one-continous-outcome-variables-is-repeatedly-measured-over-time"><span class="header-section-number">1.3</span> One continous outcome variables is repeatedly measured over time</h2>
 <section id="two-measurements" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="two-measurements"><span class="header-section-number">1.3.1</span> Two measurements</h3>
+<section id="parametric-paired-t-test" class="level4" data-number="1.3.1.1">
+<h4 data-number="1.3.1.1" class="anchored" data-anchor-id="parametric-paired-t-test"><span class="header-section-number">1.3.1.1</span> Parametric: paired t-test</h4>
 <blockquote class="blockquote">
-<p>Is there a difference in the outcome variable <code>Y</code> between <code>t = 1</code> and <code>t = 2</code></p>
+<p>Is there a difference in the outcome variable <code>Y</code> between <code>t = 1</code> and <code>t = 2</code>?</p>
 </blockquote>
 <p>The <strong>paired t-test</strong> is used to test the hypothesis that the mean difference between <code>Yt1</code> and <code>Yt2</code> equals zero.</p>
 <ul>
-<li>Observations within one individual are dependent on each other.</li>
+<li><p>Observations within one individual are dependent on each other.</p></li>
+<li><p>Use if the number of subjects is quite large (say above 25).</p></li>
 </ul>
-<p>stringhini, 2018</p>
-<p>Premature mortality reduction from chronic diseases</p>
-<p>Biological Risk factors - high blood pressure - obesity - tobacco use - excess salt intake - diabetes - insufficient physical activity - alcohol consumption</p>
-<p>Socioeconomic status - occupational group - educational attainment - level of income and wealth - place of residence</p>
+<section id="assumptions" class="level5" data-number="1.3.1.1.1">
+<h5 data-number="1.3.1.1.1" class="anchored" data-anchor-id="assumptions"><span class="header-section-number">1.3.1.1.1</span> Assumptions</h5>
+<p>1 - The observations of different subjects are independent and;<br>
+2 - The differences between the two measurements are approximately normally distributed.</p>
 </section>
 </section>
-<section id="general-additive-mixed-model-gamm" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="general-additive-mixed-model-gamm"><span class="header-section-number">1.4</span> General Additive Mixed Model (GAMM)</h2>
-<p><strong>semi-parametric model</strong></p>
-<p>Let’s start with an equation for a Gaussian linear model:</p>
-<p>y=β0+x1β1+ε,ε∼N(0,σ2)</p>
-<p>What changes in a GAM is the presence of a smoothing term:</p>
-<p>y=β0+f(x1)+ε,ε∼N(0,σ2)</p>
-<p>This term could be many things.</p>
-<section id="walking-speed-and-age" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="walking-speed-and-age"><span class="header-section-number">1.4.1</span> Walking speed and age</h3>
-<p>Fixed Effects Predictors - age - height</p>
-<p>Random Effect - study at the intercept and age slope</p>
-</section>
-<section id="number-of-years-of-functioning-lost-primary-outcome" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="number-of-years-of-functioning-lost-primary-outcome"><span class="header-section-number">1.4.2</span> Number of years of functioning lost (primary outcome)</h3>
-<p>It is based on the predictions of the previous model</p>
-<p>Fixed Effects - age - age2 - height - year of birth - distances walked - risk factor under study (minimally adjusted model) - all risk factors (mutually adjusted models)</p>
-<p>CI - Model based parametric 5000 bootstrap samples</p>
-</section>
-<section id="years-of-life-lost-secundary-outcome" class="level3" data-number="1.4.3">
-<h3 data-number="1.4.3" class="anchored" data-anchor-id="years-of-life-lost-secundary-outcome"><span class="header-section-number">1.4.3</span> Years of life lost (secundary outcome)</h3>
-<p>Difference between the areas of the survival curves. Survival curves Kaplan-Meier adjusted curves, conditional on survival to age 60 years. They run a shared frality Cox model with age as time scale, stratified by the levels of the given risk factor and a year of birth as covariate (for minimally adjusted models) or year of birth and the remaining risk factors as covariates (mutually adjusted models)</p>
-<p>schrempft 2022</p>
+<section id="non-parametric-wilcoxon-signed-rank-sum" class="level4" data-number="1.3.1.2">
+<h4 data-number="1.3.1.2" class="anchored" data-anchor-id="non-parametric-wilcoxon-signed-rank-sum"><span class="header-section-number">1.3.1.2</span> Non-parametric: (Wilcoxon) signed rank sum</h4>
+<p>Doesn’t assume any distribution.</p>
 </section>
 </section>
-<section id="pace-of-aging" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="pace-of-aging"><span class="header-section-number">1.5</span> Pace of aging</h2>
-<p>similar to Dunedin Study investigators</p>
-<p>1 - Biomarkers were standarized for healthy men and women. Z-scores were reversed for HDL and creatinine clearence.</p>
-<p>2 - Mixed-effects models with a random interecept and a random linear slope, were used to calculate participants’ personal slopes (change in biomarkers per year) Each year included time, age a t baseline center in the samples mean, and a interaction term between the time and age at the baseline. For biomarkers that show a non linear trajectory, an additionally</p>
-<p>3 - The individual slopes for each biomarker (annual change in biomarker Z-score) wee aggregated to create a total Pace of Aging score.</p>
-<p>Covariates: - Alcohol &gt; 14 units - hipertensive or diabetic medication - pysical inactivity - smoking status</p>
-<p>carmeli, 2019</p>
+<section id="more-than-two-measurements" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="more-than-two-measurements"><span class="header-section-number">1.3.2</span> More than two measurements</h3>
+<blockquote class="blockquote">
+<p>Does the outcome variable <code>Y</code> change over time?</p>
+</blockquote>
 </section>
-<section id="terms" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="terms"><span class="header-section-number">1.6</span> Terms</h2>
-<table class="table">
-<caption>Terms used in this analysis</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Term</th>
-<th style="text-align: left;">Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><code>non-communicable diseases/risk factors</code></td>
-<td style="text-align: left;">12</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>spline</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>cross-sectional study</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>longitudinal study</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+<section id="multivariate-analysis-of-variance-manova-for-repeated-measurements" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="multivariate-analysis-of-variance-manova-for-repeated-measurements"><span class="header-section-number">1.3.3</span> Multivariate analysis of variance (MANOVA) for repeated measurements</h3>
+<p>1 - Observations of different subjects. at each of the repeated measurements need to be independent; and. 2 - The observations need to be multivariate normally distributed, which is comparable but slightly more restrictive than the requirement that the differences between subsequent measurements be normally distributed.</p>
+<section id="anova-univariate-vs.-manova-multivariate" class="level4" data-number="1.3.3.1">
+<h4 data-number="1.3.3.1" class="anchored" data-anchor-id="anova-univariate-vs.-manova-multivariate"><span class="header-section-number">1.3.3.1</span> ANOVA (univariate) vs.&nbsp;MANOVA (multivariate)</h4>
+<p>To perform an ANOVA there is one extra assumption with 2 parts:</p>
+<p><strong>Sphericity assumption (epsilon coefficient)</strong></p>
+<p>3 - All correlations in outcome variable Y between repeated measurements are equal, irrespective of the time interval between the measurements.</p>
+<p>4 - The variances of outcome variable Y are the same at each of the repeated measurements.</p>
+<p><strong>Which approach should be used?</strong> If the assumptions are met, ANOVA is more powerful for smaller samples:</p>
+<blockquote class="blockquote">
+<p>“The restriction of the assumption of sphericity (i.e.&nbsp;equal correlations and equal variances over time) leads to an increase in degrees of freedom, i.e.&nbsp;an increase in power for the “univariate” approach. This increase in power becomes more important when the sample size becomes smaller. Historically, the “multivariate” approach was developed later than the “univariate” approach, especially for situations when the assumption of sphericity does not hold. So, one could argue that <strong>when the assumption of sphericity is violated,</strong> <strong>the “multivariate” approach should be used</strong>.</p>
+</blockquote>
+<p>– Extracted from <span class="citation" data-cites="twisk2013">Twisk (<a href="references.html#ref-twisk2013" role="doc-biblioref">2013</a>)</span></p>
+<p>MAMOVA in R - https://www.appsilon.com/post/manova-in-r</p>
 </section>
-<section id="references" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> References</h1>
+</section>
+</section>
+<section id="continuous-outcome-variable-y-is-compared-between-different-groups." class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="continuous-outcome-variable-y-is-compared-between-different-groups."><span class="header-section-number">1.4</span> Continuous outcome variable Y is compared between different groups.</h2>
+<p>This design is known as the “one-within, one-between” design. Time is the within-subject factor and the group variable is the between-subjects factor.</p>
+<blockquote class="blockquote">
+<p>Is there a difference in change over time for outcome variable Y between two or more groups?</p>
+</blockquote>
+<ul>
+<li><p>This question can also be answered with MANOVA for repeated measurements if it is assumed that the covariance matrices of the different groups that are compared to each other are homogeneous (independent sample <code>t-test</code>).</p></li>
+<li><p>Apparently, MANOVA could be bias when you have a lot of drop-offs in the study (<span class="citation" data-cites="biasmanova">Everitt (<a href="references.html#ref-biasmanova" role="doc-biblioref">1998</a>)</span>).</p></li>
+</ul>
+</section>
+<section id="continuous-outcome-variable-and-several-covariates" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="continuous-outcome-variable-and-several-covariates"><span class="header-section-number">1.5</span> Continuous outcome variable and several covariates</h2>
+<p>(which can be either continuous, dichotomous, or categorical)</p>
+<blockquote class="blockquote">
+<p><strong>“traditional” methods</strong> tried to reduce the statistical longitudinal problem into a <strong>cross-sectional problem</strong>.</p>
+</blockquote>
+<section id="traditional-methods." class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="traditional-methods."><span class="header-section-number">1.5.1</span> Traditional methods.</h3>
+<ul>
+<li>Analysis of the relationships between changes in different parameters between two points in time. (but, you are not using all the data)</li>
+<li>Use individual regression lines with time.</li>
+</ul>
+</section>
+<section id="new-methods." class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="new-methods."><span class="header-section-number">1.5.2</span> New methods.</h3>
+<p>With the development of (new) statistical techniques, such as:</p>
+<ol type="1">
+<li><p>Generalized estimating equations (GEE) analysis and;</p></li>
+<li><p>Mixed-model analysis,</p></li>
+</ol>
+<p>it has become possible to analyze longitudinal relationships using all available longitudinal data, without summarizing the longitudinal development of each subject into one value.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-biasmanova" class="csl-entry" role="listitem">
+Everitt, BS. 1998. <span>“Analysis of Longitudinal Data: Beyond MANOVA.”</span> <em>The British Journal of Psychiatry</em> 172 (1): 7–10.
+</div>
 <div id="ref-twisk2013" class="csl-entry" role="listitem">
 Twisk, Jos W. R. 2013. <em>Applied Longitudinal Data Analysis for Epidemiology: A Practical Guide</em>. 2nd ed. Cambridge University Press.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -610,8 +643,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./papers.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Scientific articles</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
