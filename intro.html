@@ -176,6 +176,10 @@ div.csl-indent {
   <li><a href="#traditional-methods." id="toc-traditional-methods." class="nav-link" data-scroll-target="#traditional-methods."><span class="header-section-number">1.5.1</span> Traditional methods.</a></li>
   <li><a href="#new-methods." id="toc-new-methods." class="nav-link" data-scroll-target="#new-methods."><span class="header-section-number">1.5.2</span> New methods.</a></li>
   </ul></li>
+  <li><a href="#gamm" id="toc-gamm" class="nav-link" data-scroll-target="#gamm"><span class="header-section-number">1.6</span> GAMM</a>
+  <ul class="collapse">
+  <li><a href="#random-effects" id="toc-random-effects" class="nav-link" data-scroll-target="#random-effects"><span class="header-section-number">1.6.1</span> Random Effects</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -390,6 +394,55 @@ If we measure physical activity during summers, it is likely that we can have mo
 </ol>
 <p>it has become possible to analyze longitudinal relationships using all available longitudinal data, without summarizing the longitudinal development of each subject into one value.</p>
 <p>Crippa (2022) A review of Longitudinal Data Analysis in R: https://rpubs.com/alecri/review_longitudinal</p>
+<ul>
+<li>In this model the coefficients of interest are <code>β1j</code>, because these regression coefficients show the magnitude of the longitudinal relationship between the outcome variable (<code>Yit</code>) and the covariates (<code>Xijt</code>).</li>
+<li>Because of the dependency of the repeated observations within one subject, the relationship between X and Y must be adjusted for the subject. There is one by subject and are represented by dummy variables.</li>
+</ul>
+<section id="gee" class="level4" data-number="1.5.2.1">
+<h4 data-number="1.5.2.1" class="anchored" data-anchor-id="gee"><span class="header-section-number">1.5.2.1</span> GEE</h4>
+<ul>
+<li>Before carrying out a GEE analysis, the within-subject correlation structure must be chosen.</li>
+<li>In the literature it is assumed that GEE analysis is robust against a wrong choice of the correlation structure. However, this is only the case when there are no missing data and when the model correctly specifies the mean.</li>
+<li>The interpretation of <code>β1</code> is more complex than in a cross-sectional analysis.</li>
+</ul>
+</section>
+<section id="mixed-models" class="level4" data-number="1.5.2.2">
+<h4 data-number="1.5.2.2" class="anchored" data-anchor-id="mixed-models"><span class="header-section-number">1.5.2.2</span> Mixed Models</h4>
+<ul>
+<li>This type of study design is characterized by a hierarchical structure. In longitudinal studies observations within one subject over time are correlated. The observations over time are nested within the subject.</li>
+<li>The way mixed model analysis adjusts for the subject is different from the way GEE analysis adjusts for the subject.</li>
+<li>when an adjustment is made for the subject (i.e.&nbsp;the id_number), for each subject different intercepts are calculated.</li>
+<li>The first step within a mixed model analysis is therefore to draw a normal distribution around the intercepts and in the second step the variance of that normal distribution is estimated.</li>
+<li>That variance is added to the longitudinal regression model in order to adjust for the subject in an efficient way.</li>
+<li>Because this variance is known as the <strong>random intercept</strong> (<code>β0i</code>), mixed model analysis is also known as random coefficient analysis.</li>
+<li>The general idea behind a mixed model analysis is that the unexplained variance in outcome variable Y is divided into different components. One of the components is related to the random intercept and another component is related to random slopes.<br>
+</li>
+<li>A model with a random intercept allows the intercepts to differ between the subjects, but the regression coefficient for the covariate X is the same for all the subjects. In a longitudinal study it is not uncommon that besides the intercepts also the regression coefficients for X differ between the subjects</li>
+<li>When regression coefficients for X differ between subjects, there is an interaction between the covariate X and the subject. As for the adjustment for the subject, also the interaction with the subject has to be added to a cross-sectional regression model with dummy variables.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="gamm" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="gamm"><span class="header-section-number">1.6</span> GAMM</h2>
+<blockquote class="blockquote">
+<p><code>gamm</code> considers that the observations aren’t independent (not the same as <code>gam</code>)</p>
+</blockquote>
+<section id="random-effects" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="random-effects"><span class="header-section-number">1.6.1</span> Random Effects</h3>
+<p>As we saw in the section about changing the basis, <code>bs</code> specifies the type of underlying base function. For random intercepts and linear random slopes we use <code>bs = "re"</code>, but for random smooths we use <code>bs = "fs"</code>.</p>
+<p>3 different types of random effects in GAMMs (<code>fac</code> factor coding for the random effect; x0 continuous fixed effect):</p>
+<ul>
+<li><em>random intercepts</em> adjust the height of other model terms with a constant value: <code>s(fac, bs = "re")</code></li>
+<li><em>random slopes</em> adjust the slope of the trend of a numeric predictor: <code>s(fac, x0, bs = "re")</code></li>
+<li><em>random smooths</em> adjust the trend of a numeric predictor in a nonlinear way: <code>s(x0, fac, bs = "fs", m = 1)</code>, where the argument <code>m=1</code> sets a heavier penalty for the smooth moving away from 0, causing shrinkage to the mean.</li>
+</ul>
+<p>https://stats.stackexchange.com/questions/391912/how-to-fit-a-longitudinal-gam-mixed-model-gamm</p>
+<p>https://jacolienvanrij.com/Tutorials/GAMM.html#setting-up-a-gamm-model https://r.qcbs.ca/workshop08/pres-en/workshop08-pres-en.html#129 https://r.qcbs.ca/workshop08/book-en/introduction-to-gams.html https://bart-larsen.github.io/GAMM-Tutorial/</p>
+<ul>
+<li>We can try to build a more appropriate model by fitting the data with a smoothed (non-linear) term specified by expressions of the form <code>s(x)</code></li>
+<li><code>Radj</code> is the variance explained by the model</li>
+</ul>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
