@@ -449,7 +449,7 @@ div.csl-indent {
 </div>
 </div>
 <ul>
-<li><p>The cases were <code>NA</code> values were reported were for COF1 (0%) and COF2 (0%) of the original database. These rows were removed. The <code>NAs</code> for <code>WEA_SVNGSVL_MCQ</code> were also eliminated from the analysis.</p></li>
+<li><p>The cases were <code>NA</code> values were reported for <code>COF1</code> and <code>COF2</code> were removed. The <code>NAs</code> for <code>WEA_SVNGSVL_MCQ</code> were also eliminated from the analysis.</p></li>
 <li><p>Variable <code>height</code> is missing.</p></li>
 </ul>
 <div class="cell">
@@ -475,7 +475,7 @@ div.csl-indent {
 <section id="data-wrangling" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="data-wrangling"><span class="header-section-number">3.2.2</span> Data wrangling</h3>
 <ul>
-<li>The dataset is splitted in subtables to make it easier to use.</li>
+<li>The dataset is divided in subtables to make it easier to use.</li>
 <li>The variable <code>Walking time</code> is converted to <code>Walking speed</code>.</li>
 <li>Following <span class="citation" data-cites="strin2018">Stringhini et al. (<a href="references.html#ref-strin2018" role="doc-biblioref">2018</a>)</span>, the ages have been reduced from 45 to 90.</li>
 </ul>
@@ -550,7 +550,7 @@ div.csl-indent {
 <p>Comments:</p>
 <ul>
 <li><p>There are fewer observations for older ages.</p></li>
-<li><p>There are 824 observations in the dataset. 48.6650485 % are men and 51.3349515 % are women.</p></li>
+<li><p>There are 824 observations in the dataset. 48.7 % are men and 51.3 % are women.</p></li>
 </ul>
 </section>
 <section id="socioeconomic-variables" class="level3" data-number="3.2.4">
@@ -592,8 +592,8 @@ div.csl-indent {
 <p>Comments:</p>
 <ul>
 <li>79.7% of the participants hold a post-secondary degree/diploma.</li>
-<li>50of the participants have saving and investments between $100,000 and $1 million dollars.</li>
-<li>However, the values of total income are more homogeneous among categories, being the maximum 32% . This could indicate that some study participants with a post-secondary degree and $100,000 - $1 million dollars of savings and investments come from more than one total household income category. More analysis should be carry out to confirm this.</li>
+<li>50% of the participants have saving and investments between $100,000 and $1 million dollars.</li>
+<li>However, the values of total household income are more homogeneous among categories, being the maximum 32% . This could indicate that some study participants with a post-secondary degree and $100,000 - $1 million dollars of savings and investments come from more than one total household income category. More analysis should be carry out to confirm this.</li>
 <li>Data reported as ‘refused’ or ‘No answer’ should be removed of the analysis.</li>
 </ul>
 </section>
@@ -669,7 +669,7 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'  edf k-index p-value
-s(AGE_VALS) 9.00 4.77       1    0.43</code></pre>
+s(AGE_VALS) 9.00 4.77    0.98    0.12</code></pre>
 </div>
 </div>
 <p>To be continued…</p>
@@ -691,7 +691,13 @@ s(AGE_VALS) 9.00 4.77       1    0.43</code></pre>
 <p><img src="analysis_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Next steps: * Add <code>age</code>, <code>height</code> and the socioeconomic variables as fixed effects using a generalized additive mixed model (GAMM). * This could be performed for one socioeconomic variable at a time or to all the variables at the same time. * In <span class="citation" data-cites="strin2018">Stringhini et al. (<a href="references.html#ref-strin2018" role="doc-biblioref">2018</a>)</span>, <code>study</code> is used as a random effect at the intercept and age slope, but in that article were used multiple studies from different countries. In this case we could try using <code>id</code> as random effect.</p>
+<p>Next steps:</p>
+<ul>
+<li><p>Add <code>age</code>, <code>height</code>, and the socioeconomic variables as fixed effects using a generalized additive mixed model (GAMM).</p></li>
+<li><p>This could be performed for one socioeconomic variable at a time or to all the variables at the same time.</p></li>
+<li><p>In <span class="citation" data-cites="strin2018">Stringhini et al. (<a href="references.html#ref-strin2018" role="doc-biblioref">2018</a>)</span>, <code>study</code> is used as a random effect at the intercept and age slope, but in that article, multiple studies from different countries were used.<br>
+In this case, we could try using <code>id</code> as a random effect.</p></li>
+</ul>
 </section>
 </section>
 <section id="removed" class="level2" data-number="3.3">
