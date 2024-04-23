@@ -204,7 +204,7 @@ div.csl-indent {
   <li><a href="#socioeconomic-variables" id="toc-socioeconomic-variables" class="nav-link" data-scroll-target="#socioeconomic-variables"><span class="header-section-number">3.2.4</span> Socioeconomic Variables</a></li>
   </ul></li>
   <li><a href="#walking-speed-as-function-of-age." id="toc-walking-speed-as-function-of-age." class="nav-link" data-scroll-target="#walking-speed-as-function-of-age."><span class="header-section-number">3.3</span> Walking Speed as function of age.</a></li>
-  <li><a href="#removed" id="toc-removed" class="nav-link" data-scroll-target="#removed"><span class="header-section-number">3.4</span> Removed</a></li>
+  <li><a href="#removed-from-the-analysis" id="toc-removed-from-the-analysis" class="nav-link" data-scroll-target="#removed-from-the-analysis"><span class="header-section-number">3.4</span> Removed from the analysis</a></li>
   </ul>
 </nav>
     </div>
@@ -284,7 +284,7 @@ div.csl-indent {
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>inc_ptot_label <span class="ot">&lt;-</span> <span class="fu">dlabel</span>(INC_PTOT_COM)</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>wea_label <span class="ot">&lt;-</span> <span class="fu">dlabel</span>(WEA_SVNGSVL_MCQ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This are the variables available in the dataset:</p>
+<p>These are the variables available in the dataset:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> <span class="fu">rbind</span>(var_baseline, var_follow_up1) <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(name, label, <span class="fu">everything</span>(), <span class="sc">-</span>unit, <span class="sc">-</span>table) <span class="sc">|&gt;</span></span>
@@ -408,7 +408,7 @@ div.csl-indent {
 <section id="general-observations" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="general-observations"><span class="header-section-number">3.2.1</span> General observations</h3>
 <ul>
-<li><p>In this dataset there are are reported the baseline values (<code>*_COM</code>), as well as the first follow up in 2017/18 (<code>*_COF1</code>) and the second follow up (<code>*_COF2</code>), that seems to be 2019/20/21 in the data.</p></li>
+<li><p>In this dataset there were reported the baseline values (<code>*_COM</code>), as well as the first follow up in 2017/18 (<code>*_COF1</code>) and the second follow up (<code>*_COF2</code>), in 2019/20/21.</p></li>
 <li><p>Data were collected between 2012 and 2021.</p></li>
 </ul>
 <div class="cell">
@@ -449,7 +449,7 @@ div.csl-indent {
 </div>
 </div>
 <ul>
-<li><p>The cases were <code>NA</code> values were reported for <code>COF1</code> and <code>COF2</code> were removed. The <code>NAs</code> for <code>WEA_SVNGSVL_MCQ</code> were also eliminated from the analysis.</p></li>
+<li><p><code>NA</code> values were removed for <code>COF1</code> and <code>COF2</code>. The <code>NAs</code> for <code>WEA_SVNGSVL_MCQ</code> were also eliminated from the analysis.</p></li>
 <li><p>Variable <code>height</code> is missing.</p></li>
 </ul>
 <div class="cell">
@@ -618,7 +618,7 @@ div.csl-indent {
 <p><img src="analysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>If we fit this basic first model:</p>
+<p>If we fit this first basic model:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">gam</span>(<span class="at">data =</span> data_plot, WLK_TIME <span class="sc">~</span> <span class="fu">s</span>(AGE_VALS))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -669,8 +669,10 @@ Model rank =  10 / 10
 Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
-              k'  edf k-index p-value
-s(AGE_VALS) 9.00 4.77    0.98    0.12</code></pre>
+              k'  edf k-index p-value  
+s(AGE_VALS) 9.00 4.77    0.97   0.015 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 <p>To be continued…</p>
@@ -700,8 +702,8 @@ s(AGE_VALS) 9.00 4.77    0.98    0.12</code></pre>
 In this case, we could try using <code>id</code> as a random effect.</p></li>
 </ul>
 </section>
-<section id="removed" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="removed"><span class="header-section-number">3.4</span> Removed</h2>
+<section id="removed-from-the-analysis" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="removed-from-the-analysis"><span class="header-section-number">3.4</span> Removed from the analysis</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>socvars <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"INC"</span>), ED_UDR04_COM, WEA_SVNGSVL_MCQ, SDC_MRTL_COM)</span>
