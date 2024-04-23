@@ -202,9 +202,9 @@ div.csl-indent {
   <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling"><span class="header-section-number">3.2.2</span> Data wrangling</a></li>
   <li><a href="#demographic-variables" id="toc-demographic-variables" class="nav-link" data-scroll-target="#demographic-variables"><span class="header-section-number">3.2.3</span> Demographic variables</a></li>
   <li><a href="#socioeconomic-variables" id="toc-socioeconomic-variables" class="nav-link" data-scroll-target="#socioeconomic-variables"><span class="header-section-number">3.2.4</span> Socioeconomic Variables</a></li>
-  <li><a href="#walking-speed-as-function-of-age." id="toc-walking-speed-as-function-of-age." class="nav-link" data-scroll-target="#walking-speed-as-function-of-age."><span class="header-section-number">3.2.5</span> Walking Speed as function of age.</a></li>
   </ul></li>
-  <li><a href="#removed" id="toc-removed" class="nav-link" data-scroll-target="#removed"><span class="header-section-number">3.3</span> Removed</a></li>
+  <li><a href="#walking-speed-as-function-of-age." id="toc-walking-speed-as-function-of-age." class="nav-link" data-scroll-target="#walking-speed-as-function-of-age."><span class="header-section-number">3.3</span> Walking Speed as function of age.</a></li>
+  <li><a href="#removed" id="toc-removed" class="nav-link" data-scroll-target="#removed"><span class="header-section-number">3.4</span> Removed</a></li>
   </ul>
 </nav>
     </div>
@@ -593,12 +593,13 @@ div.csl-indent {
 <ul>
 <li>79.7% of the participants hold a post-secondary degree/diploma.</li>
 <li>50% of the participants have <code>Total Value of Saving and Investments</code> between $100,000 and $1 million dollars.</li>
-<li>However, the <code>Total Household Income</code> is more homogeneous among its categories, being $50,000 or more, but less than $100,000 the maximum value reported (32%). This could indicate that some study participants with a post-secondary degree and $100,000 - $1 million dollars of savings and investments belongs to more than one <code>Total Household Income</code> category. More analysis should be carry out to confirm this.</li>
+<li>However, the <code>Total Household Income</code> is more homogeneous among its categories, being $50,000 or more, but less than $100,000 the maximum value reported (32%). This could indicate that some study participants with a post-secondary degree and $100,000 - $1 million dollars of savings and investments belongs to more than one <code>Total Household Income</code> category. More analysis should be conducted to confirm this.</li>
 <li>Data reported as ‘refused’ or ‘No answer’ should be removed of the analysis.</li>
 </ul>
 </section>
-<section id="walking-speed-as-function-of-age." class="level3" data-number="3.2.5">
-<h3 data-number="3.2.5" class="anchored" data-anchor-id="walking-speed-as-function-of-age."><span class="header-section-number">3.2.5</span> Walking Speed as function of age.</h3>
+</section>
+<section id="walking-speed-as-function-of-age." class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="walking-speed-as-function-of-age."><span class="header-section-number">3.3</span> Walking Speed as function of age.</h2>
 <ul>
 <li>Obervations are not independent</li>
 <li>Outcome variable: walking speed</li>
@@ -669,7 +670,7 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'  edf k-index p-value
-s(AGE_VALS) 9.00 4.77    0.99     0.2</code></pre>
+s(AGE_VALS) 9.00 4.77       1    0.48</code></pre>
 </div>
 </div>
 <p>To be continued…</p>
@@ -699,9 +700,8 @@ s(AGE_VALS) 9.00 4.77    0.99     0.2</code></pre>
 In this case, we could try using <code>id</code> as a random effect.</p></li>
 </ul>
 </section>
-</section>
-<section id="removed" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="removed"><span class="header-section-number">3.3</span> Removed</h2>
+<section id="removed" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="removed"><span class="header-section-number">3.4</span> Removed</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>socvars <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"INC"</span>), ED_UDR04_COM, WEA_SVNGSVL_MCQ, SDC_MRTL_COM)</span>
